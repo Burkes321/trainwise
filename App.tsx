@@ -96,6 +96,12 @@ function App(): React.JSX.Element {
   );
 }
 
+const darkPrimaryShade = '#32322C';
+const darkSecondaryShade = '#39A0ED';
+const darkAccentShade = '#36F1CD';
+
+// TODO: light theme shades
+
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,

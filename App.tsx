@@ -5,16 +5,15 @@
  * @format
  */
 
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+
+import { Home } from './src/screens/Home';
 
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <Text style={styles.text}>Welcome to trainwise</Text>
-      </View>
+      <Home />
 
       {/* <SafeAreaView style={backgroundStyle}>
         <StatusBar
@@ -49,24 +48,5 @@ function App(): React.JSX.Element {
     </NavigationContainer>
   );
 }
-
-const darkPrimaryShade = '#32322C';
-const darkSecondaryShade = '#39A0ED';
-const darkAccentShade = '#36F1CD';
-const textColor = '#FFFFFF';
-
-// TODO: light theme shades
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: darkPrimaryShade,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: textColor,
-  },
-});
 
 export default App;

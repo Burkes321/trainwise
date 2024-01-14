@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 const plusTabIcon = ({ color, size }: { color: string; size: number }) => (
   <Image
     style={{ height: size, width: size, tintColor: color }}
-    source={require('./src/assets/plus.png')}
+    source={require('./src/assets/user.png')}
   />
 );
 

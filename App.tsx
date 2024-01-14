@@ -9,42 +9,35 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 
 import { Home } from './src/screens/Home';
+import { Exercises } from './src/screens/Exercises';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { Image } from 'react-native';
+
+const Tab = createBottomTabNavigator();
+
+const plusTabIcon = ({ color, size }: { color: string; size: number }) => (
+  <Image
+    style={{ height: size, width: size, tintColor: color }}
+    source={require('./src/assets/plus.png')}
+  />
+);
 
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Home />
-
-      {/* <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
+      <Tab.Navigator>
+        <Tab.Screen
+          name="Home"
+          component={Home}
+          options={{
+            tabBarIcon: ({ color, size }) => {
+              return plusTabIcon({ color, size });
+            },
+          }}
         />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          <Header />
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-            <Section title="Step One">
-              Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-              screen and then come back to see your edits.
-            </Section>
-            <Section title="See Your Changes">
-              <ReloadInstructions />
-            </Section>
-            <Section title="Debug">
-              <DebugInstructions />
-            </Section>
-            <Section title="Learn More">
-              Read the docs to discover what to do next:
-            </Section>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView> */}
+        <Tab.Screen name="Exercises" component={Exercises} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

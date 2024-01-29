@@ -5,7 +5,7 @@ import { STYLE_CONSTANTS } from '../styleConstants';
 export const Exercises = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Exercises</Text>
+      <Text style={styles.text}>Saved exercises</Text>
     </View>
   );
 };

@@ -12,34 +12,45 @@ import { Home } from './src/screens/Home';
 import { Exercises } from './src/screens/Exercises';
 import { Workout } from './src/screens/Workout';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  ExercisesTabIcon,
+  UserTabIcon,
+  WorkoutTabIcon,
+} from './src/components/navigationIcons';
 
-import { Image } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
 
 const Tab = createBottomTabNavigator();
 
-// TODO: Create a function which generates the tab icons or move them to a separate file if not possible
-const UserTabIcon = ({ color, size }: { color: string; size: number }) => (
-  <Image
-    style={{ height: size, width: size, tintColor: color }}
-    source={require('./src/assets/user.png')}
-  />
-);
-
-const WorkoutTabIcon = ({ color, size }: { color: string; size: number }) => (
-  <Image
-    style={{ height: size, width: size, tintColor: color }}
-    source={require('./src/assets/plus.png')}
-  />
-);
-
-const ExercisesTabIcon = ({ color, size }: { color: string; size: number }) => (
-  <Image
-    style={{ height: size, width: size, tintColor: color }}
-    source={require('./src/assets/dumbbell.png')}
-  />
-);
-
 function App(): React.JSX.Element {
+  const storage = new MMKV();
+
+  // const testExercise = {
+  //   name: 'Lat pulldown',
+  //   set1: {
+  //     weight: 73,
+  //     reps: 8,
+  //   },
+  //   set2: {
+  //     weight: 73,
+  //     reps: 7,
+  //   },
+  //   set3: {
+  //     weight: 73,
+  //     reps: 6,
+  //   },
+  // };
+
+  // TODO: check if accidentally overwriting names is possible
+
+  // TODO: create a const enum which holds all the exercise names, no magic strings
+  const stringifiedTestExerciseFromStorage = storage.getString('lat pulldown');
+
+  const parsedTestExercise =
+    stringifiedTestExerciseFromStorage &&
+    JSON.parse(stringifiedTestExerciseFromStorage);
+  console.log('🚀 ~ App ~ parsedTestExercise:', parsedTestExercise);
+
   return (
     <NavigationContainer>
       <Tab.Navigator>

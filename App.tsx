@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 
@@ -18,38 +11,31 @@ import {
   WorkoutTabIcon,
 } from './src/components/navigationIcons';
 
+import { TEST_EXERCISE_NAMES } from './src/const';
+
 import { MMKV } from 'react-native-mmkv';
 
 const Tab = createBottomTabNavigator();
 
+export const storage = new MMKV();
+
 function App(): React.JSX.Element {
-  const storage = new MMKV();
+  // TODO: update readme with more features you want to make
 
-  // const testExercise = {
-  //   name: 'Lat pulldown',
-  //   set1: {
-  //     weight: 73,
-  //     reps: 8,
-  //   },
-  //   set2: {
-  //     weight: 73,
-  //     reps: 7,
-  //   },
-  //   set3: {
-  //     weight: 73,
-  //     reps: 6,
-  //   },
-  // };
+  // TODO: able to add more sets dynamically to each exercise
 
-  // TODO: check if accidentally overwriting names is possible
+  // TODO: Searchable / filterable list of exercises
 
-  // TODO: create a const enum which holds all the exercise names, no magic strings
-  const stringifiedTestExerciseFromStorage = storage.getString('lat pulldown');
+  // ! temporarily keep for reference
+  // storage.set(
+  //   TEST_EXERCISE_NAMES.LAT_PULLDOWN,
+  //   JSON.stringify(testLatPulldown),
+  // );
+  // storage.set(TEST_EXERCISE_NAMES.BENCH_PRESS, JSON.stringify(testBenchPress));
+  // storage.set(TEST_EXERCISE_NAMES.LEG_PRESS, JSON.stringify(testLegPress));
 
-  const parsedTestExercise =
-    stringifiedTestExerciseFromStorage &&
-    JSON.parse(stringifiedTestExerciseFromStorage);
-  console.log('🚀 ~ App ~ parsedTestExercise:', parsedTestExercise);
+  const stringFromStorage = storage.getString(TEST_EXERCISE_NAMES.BENCH_PRESS);
+  console.log('🚀 ~ App ~ stringFromStorage:', stringFromStorage);
 
   return (
     <NavigationContainer>

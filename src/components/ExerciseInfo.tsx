@@ -3,6 +3,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { STYLE_CONSTANTS } from '../styleConstants';
 
+type Props = {
+  // TODO: type this any
+  exercise: any;
+};
+
 export const ExerciseInfo = () => {
   return (
     <View style={styles.container}>

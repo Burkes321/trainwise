@@ -5,17 +5,20 @@ import { storage } from '../../App';
 import { TEST_EXERCISE_NAMES } from '../const';
 import { ExerciseInfo } from '../components/ExerciseInfo';
 
-const latPulldownInfo = JSON.parse(
-  storage.getString(TEST_EXERCISE_NAMES.LAT_PULLDOWN) ?? '',
+const exercisesFromStorageKeys = Object.values(TEST_EXERCISE_NAMES).map(
+  exerciseName => JSON.parse(storage.getString(exerciseName) ?? ''),
 );
 
 export const Exercises = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Saved exercises</Text>
-      {/* TODO: as the exercises may eventually overflow the container, probably want to use a <ScrollView /> */}
+      {/* // TODO: as the exercises may eventually overflow the container, probably want to use a <ScrollView /> */}
       <View style={styles.exercisesContainer}>
-        <ExerciseInfo />
+        {exercisesFromStorageKeys.map(exercise => (
+          // ! name as key not advisable since they are not guaranteed unique
+          <ExerciseInfo key={exercise.name} />
+        ))}
         <View />
       </View>
     </View>

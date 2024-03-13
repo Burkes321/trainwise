@@ -1,4 +1,4 @@
-export const enum TEST_EXERCISE_NAMES {
+export enum TEST_EXERCISE_NAMES {
   LAT_PULLDOWN = 'lat pulldown',
   BENCH_PRESS = 'bench press',
   LEG_PRESS = 'leg press',

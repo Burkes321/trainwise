@@ -15,11 +15,10 @@ import { MMKV } from 'react-native-mmkv';
 
 const Tab = createBottomTabNavigator();
 
+// TODO: think about moving this to it's own file in /src?
 export const storage = new MMKV();
 
 function App(): React.JSX.Element {
-  // TODO: update readme with more features you want to make
-
   // TODO: able to add more sets dynamically to each exercise
 
   // TODO: Searchable / filterable list of exercises

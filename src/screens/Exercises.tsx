@@ -1,8 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { STYLE_CONSTANTS } from '../styleConstants';
-// TODO: use this to fetch all the saved exercises from storage
 import { storage } from '../../App';
+import { TEST_EXERCISE_NAMES } from '../const';
+
+const latPulldownInfo = JSON.parse(
+  storage.getString(TEST_EXERCISE_NAMES.LAT_PULLDOWN) ?? '',
+);
+console.log('🚀 ~ latPulldownInfo:', latPulldownInfo);
+
+// TODO: now have the exercise info from storage
 
 export const Exercises = () => {
   return (

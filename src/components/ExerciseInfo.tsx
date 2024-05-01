@@ -2,33 +2,26 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { STYLE_CONSTANTS } from '../styleConstants';
+import { Exercise } from '../interfaces';
 
 type Props = {
-  // TODO: type this any
-  exercise: any;
+  exercise: Exercise;
 };
 
-export const ExerciseInfo = () => {
+export const ExerciseInfo = ({ exercise }: Props) => {
+  const { name, setInfo } = exercise;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lat pulldown</Text>
+      <Text style={styles.title}>{name}</Text>
       <View style={styles.statsContainer}>
-        <View style={styles.statsRow}>
-          {/* // TODO: mock data, replace with stats from storage - pass whole object to component as prop */}
-          <Text style={styles.rowItem}>Set 1</Text>
-          <Text style={styles.rowItem}>20 KG</Text>
-          <Text style={styles.rowItem}>10</Text>
-        </View>
-        <View style={styles.statsRow}>
-          <Text style={styles.rowItem}>Set 1</Text>
-          <Text style={styles.rowItem}>20 KG</Text>
-          <Text style={styles.rowItem}>10</Text>
-        </View>
-        <View style={styles.statsRow}>
-          <Text style={styles.rowItem}>Set 1</Text>
-          <Text style={styles.rowItem}>20 KG</Text>
-          <Text style={styles.rowItem}>10</Text>
-        </View>
+        {setInfo.map(set => (
+          <View key={set.name} style={styles.statsRow}>
+            <Text style={styles.rowItem}>{set.name}</Text>
+            <Text style={styles.rowItem}>{set.reps}</Text>
+            <Text style={styles.rowItem}>{set.weight}kg</Text>
+          </View>
+        ))}
       </View>
     </View>
   );

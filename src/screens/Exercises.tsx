@@ -17,7 +17,7 @@ export const Exercises = () => {
       <View style={styles.exercisesContainer}>
         {exercisesFromStorageKeys.map(exercise => (
           // ! name as key not advisable since they are not guaranteed unique
-          <ExerciseInfo key={exercise.name} />
+          <ExerciseInfo key={exercise.name} exercise={exercise} />
         ))}
         <View />
       </View>

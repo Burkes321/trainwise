@@ -4,6 +4,8 @@ hobby project for keeping track of exercises during gym workouts and measuring p
 
 ## TODO - FEATURES I WANT TO IMPLEMENT
 
+- make a page component
+- issue with stored exercise rendering when there is nothing in storage
 - list of exisitng exercises (these will be mock for the time being)
 - ability for user to add their own custom exerises
 - list of built in exercises for the user to choose from

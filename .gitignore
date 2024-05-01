@@ -33,6 +33,8 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+android/!(replay*)
+android/!(hs_err*)
 
 # node.js
 #
